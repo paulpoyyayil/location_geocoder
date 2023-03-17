@@ -91,6 +91,8 @@ class GoogleGeocoding implements Geocoding {
         result['adminArea'] = item['long_name'];
       } else if (types.contains('administrative_area_level_2')) {
         result['subAdminArea'] = item['long_name'];
+      } else if (types.contains('administrative_area_level_3')) {
+        result['district'] = item['long_name'];
       } else if (types.contains('sublocality') ||
           types.contains('sublocality_level_1')) {
         result['subLocality'] = item['long_name'];

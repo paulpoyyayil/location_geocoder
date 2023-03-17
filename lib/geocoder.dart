@@ -62,20 +62,25 @@ class Address {
   /// The sub-thoroughfare name of the address
   final String? subThoroughfare;
 
+  //The district name of the address
+  final String? districtName;
+
   ///extracted address details from api
-  Address(
-      {required this.coordinates,
-      this.addressLine,
-      this.countryName,
-      this.countryCode,
-      this.featureName,
-      this.postalCode,
-      this.adminArea,
-      this.subAdminArea,
-      this.locality,
-      this.subLocality,
-      this.thoroughfare,
-      this.subThoroughfare});
+  Address({
+    required this.coordinates,
+    this.addressLine,
+    this.countryName,
+    this.countryCode,
+    this.featureName,
+    this.postalCode,
+    this.adminArea,
+    this.subAdminArea,
+    this.locality,
+    this.subLocality,
+    this.thoroughfare,
+    this.subThoroughfare,
+    this.districtName,
+  });
 
   /// Creates an address from a map containing its properties.
   Address.fromMap(Map map)
@@ -90,7 +95,8 @@ class Address {
         adminArea = map['adminArea'],
         subAdminArea = map['subAdminArea'],
         thoroughfare = map['thoroughfare'],
-        subThoroughfare = map['subThoroughfare'];
+        subThoroughfare = map['subThoroughfare'],
+        districtName = map['district'];
 
   /// Creates a map from the address properties.
   Map toMap() => {
@@ -106,5 +112,6 @@ class Address {
         'subAdminArea': subAdminArea,
         'thoroughfare': thoroughfare,
         'subThoroughfare': subThoroughfare,
+        'district': districtName,
       };
 }
