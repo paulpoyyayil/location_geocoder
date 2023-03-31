@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:core';
 import 'dart:io';
+import 'package:flutter/material.dart';
+
 import '../geocoder.dart';
 import 'base.dart';
 
@@ -44,6 +46,7 @@ class GoogleGeocoding implements Geocoding {
     var results = data['results'];
 
     if (results == null) return [];
+    if (results.isEmpty) debugPrint(responseBody);
 
     return results
         .map(_convertAddress)
